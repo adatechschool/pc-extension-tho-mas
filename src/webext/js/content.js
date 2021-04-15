@@ -74,7 +74,7 @@ var changeWelcomePage = function () {
             <div class="flex flex-row justify-center">
                 <a class="button" target="_blank" href="/account/general">Param&egrave;tres du compte</a>
                 <a class="button" target="_blank" href="/account/password">Changer le mot de passe</a>
-                <a class="button" target="_blank" href="/user/thomas+blochet?um_action=edit">&Eacute;diter mon profil</a>
+                <a class="button" target="_blank" href="/user/thomas+blochet?um_action=edit#content">&Eacute;diter mon profil</a>
             </div>
         </div>
         <div class="wrapper w-full">
