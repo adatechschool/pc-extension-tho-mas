@@ -81,13 +81,17 @@ var changeWelcomePage = function () {
         <div class="wrapper w-full">
             <h3 class="centered">Liens Rapides</h3>
             <h4 class="centered">Liens Vibe</h3>
-            <div class="flex flex-row justify-center wrap">
-                <a class="button" href="/les-level-ups-semaine-a-la-carte">Biblioth&egrave;que des Level-Up</a>
-                <a class="button" href="/liste-des-competences-disponibles">Liste des comp&eacute;tences</a>
-                <a class="button" href="/pauline">Liste de tous les badges</a>
-                <a class="button" href="/members">Liste des membres</a>
-                <a class="button" href="/mes-badges">Liste de mes badges</a>
-                <a class="button" href="/mes-competences">Liste de mes comp&eacute;tences</a>
+            <div class="flex flex-col">
+                <div class="flex flex-row justify-center wrap">
+                    <a class="button" href="/les-level-ups-semaine-a-la-carte">Biblioth&egrave;que des Level-Up</a>
+                    <a class="button" href="/liste-des-competences-disponibles">Liste des comp&eacute;tences</a>
+                    <a class="button" href="/pauline">Liste de tous les badges</a>
+                </div>
+                <div class="flex flex-row justify-center wrap">
+                    <a class="button" href="/members">Liste des membres</a>
+                    <a class="button" href="/mes-badges">Liste de mes badges</a>
+                    <a class="button" href="/mes-competences">Liste de mes comp&eacute;tences</a>
+                </div>
             </div>
             <h4 class="centered">Liens Externes</h3>
             <div class="flex flex-row justify-center wrap">
@@ -113,34 +117,34 @@ var changeWelcomePage = function () {
         <div class="wrapper w-full">
             <h3 class="centered">Recherche</h3>
             <div class="wrapper flex flex-col">
-                <form target="_blank" action="https://google.com/search" method="GET" class="flex flex-row justify-center m-1">
-                    <input type="text" name="q" placeholder="Rechercher sur Google">
-                    <button style="background-color: #4C8BF5; border-width: 0;" type="submit"><i style="color:white;" class="fa fa-search"></i></button>
-                </form>
-                <form target="_blank" action="https://www.ecosia.org/search" method="GET" class="flex flex-row justify-center m-1">
-                    <input type="text" name="q" placeholder="Rechercher sur Ecosia">
-                    <button style="background-color: #4B8B3B; border-width: 0;" type="submit"><i style="color:white;" class="fa fa-search"></i></button>
-                </form>
-                <form target="_blank" action="https://duckduckgo.com/" method="GET" class="flex flex-row justify-center m-1">
-                    <input type="text" name="q" placeholder="Rechercher sur DuckDuckGo">
-                    <button style="background-color: #FF6600; border-width: 0;" type="submit"><i style="color:white;" class="fa fa-search"></i></button>
-                </form>
-                <form target="_blank" action="https://developer.mozilla.org/search" method="GET" class="flex flex-row justify-center m-1">
-                    <input type="text" name="q" placeholder="Rechercher sur le MDN">
-                    <button style="background-color: #000; border-width: 0;" type="submit"><i style="color:white;" class="fa fa-search"></i></button>
-                </form>
-                <form target="_blank" action="https://css-tricks.com/" method="GET" class="flex flex-row justify-center m-1">
-                    <input type="text" name="s" placeholder="Rechercher sur CSS Tricks">
-                    <button style="background: linear-gradient(130deg,#ff7a18,#af002d 41.07%,#319197 76.05%); border-width: 0;" type="submit"><i style="color:white;" class="fa fa-search"></i></button>
-                </form>
-                <form target="_blank" action="https://stackoverflow.com/search" method="GET" class="flex flex-row justify-center m-1">
-                    <input type="text" name="q" placeholder="Rechercher sur StackOverflow">
-                    <button style="background-color: rgb(244,128,36); border-width: 0;" type="submit"><i style="color:white;" class="fa fa-search"></i></button>
-                </form>
-
-                
-
-                
+                <div class="wrapper flex flex-row wrap justify-center">
+                    <form target="_blank" action="https://google.com/search" method="GET" class="flex flex-row justify-center m-1">
+                        <input type="text" name="q" placeholder="Rechercher sur Google">
+                        <button style="background-color: #4C8BF5; border-width: 0;" type="submit"><i style="color:white;" class="fa fa-search"></i></button>
+                    </form>
+                    <form target="_blank" action="https://www.ecosia.org/search" method="GET" class="flex flex-row justify-center m-1">
+                        <input type="text" name="q" placeholder="Rechercher sur Ecosia">
+                        <button style="background-color: #4B8B3B; border-width: 0;" type="submit"><i style="color:white;" class="fa fa-search"></i></button>
+                    </form>
+                    <form target="_blank" action="https://duckduckgo.com/" method="GET" class="flex flex-row justify-center m-1">
+                        <input type="text" name="q" placeholder="Rechercher sur DuckDuckGo">
+                        <button style="background-color: #FF6600; border-width: 0;" type="submit"><i style="color:white;" class="fa fa-search"></i></button>
+                    </form>
+                </div>
+                <div class="wrapper flex flex-row wrap justify-center">
+                    <form target="_blank" action="https://developer.mozilla.org/search" method="GET" class="flex flex-row justify-center m-1">
+                        <input type="text" name="q" placeholder="Rechercher sur le MDN">
+                        <button style="background-color: #000; border-width: 0;" type="submit"><i style="color:white;" class="fa fa-search"></i></button>
+                    </form>
+                    <form target="_blank" action="https://css-tricks.com/" method="GET" class="flex flex-row justify-center m-1">
+                        <input type="text" name="s" placeholder="Rechercher sur CSS Tricks">
+                        <button style="background: linear-gradient(130deg,#ff7a18,#af002d 41.07%,#319197 76.05%); border-width: 0;" type="submit"><i style="color:white;" class="fa fa-search"></i></button>
+                    </form>
+                    <form target="_blank" action="https://stackoverflow.com/search" method="GET" class="flex flex-row justify-center m-1">
+                        <input type="text" name="q" placeholder="Rechercher sur StackOverflow">
+                        <button style="background-color: rgb(244,128,36); border-width: 0;" type="submit"><i style="color:white;" class="fa fa-search"></i></button>
+                    </form>
+                </div>
             </div>
         </div>
         
