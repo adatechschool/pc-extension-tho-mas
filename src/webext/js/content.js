@@ -108,7 +108,7 @@ var changeWelcomePage = function () {
             </div>
             <h4 class="centered">Les Favoris de toto</h3>
             <div class="flex flex-row justify-center wrap">
-                <a class="button" style="background: linear-gradient(130deg,#ff7a18,#af002d 41.07%,#319197 76.05%);" href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"><i class="fab fa-css3"></i>&nbsp;Guide des flexbox</a>
+                <a class="button" target="_blank" style="background: linear-gradient(130deg,#ff7a18,#af002d 41.07%,#319197 76.05%);" href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"><i class="fab fa-css3"></i>&nbsp;Guide des flexbox</a>
             </div>
 
         </div>
