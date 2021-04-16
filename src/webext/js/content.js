@@ -96,18 +96,19 @@ var changeWelcomePage = function () {
             <h4 class="centered">Liens Externes</h3>
             <div class="flex flex-col">
                 <div class="flex flex-row justify-center">
-                    <a class="button" style="background-color: rgb(244,128,36);" href="https://stackoverflow.com/">StackOverflow</a>
-                    <a class="button" style="background-color: rgb(255, 205, 0);" href="https://www.welcometothejungle.com/">Welcome to the Jungle</a>
-                    <a class="button" style="background-color: #2977c9;" href="https://www.linkedin.com/">LinkedIn</a>
+                    <a class="button" style="background-color: rgb(244,128,36);" href="https://stackoverflow.com/"><i class="fab fa-stack-overflow"></i>&nbsp;StackOverflow</a>
+                    <a class="button" style="background-color: #161B22;" href="https://github.com/"><i class="fab fa-github"></i>&nbsp;GitHub</a>
+                    <a class="button" style="background-color: #2977c9;" href="https://www.linkedin.com/"><i class="fab fa-linkedin"></i>&nbsp;LinkedIn</a>
                 </div>
                 <div class="flex flex-row justify-center">
-                    <a class="button" style="background-color: #2557a7;" href="https://www.indeed.com/">Indeed</a>
-                    <a class="button" style="background-color: rgb(12, 170, 65);" href="https://www.glassdoor.fr/">Glassdoor</a>
+                    <a class="button" style="background-color: #2557a7;" href="https://www.indeed.com/"><i class="fas fa-info"></i>&nbsp;Indeed</a>
+                    <a class="button" style="background-color: rgb(12, 170, 65);" href="https://www.glassdoor.fr/"><i class="fas fa-door-open"></i>&nbsp;Glassdoor</a>
+                    <a class="button" style="background-color: rgb(255, 205, 0);" href="https://www.welcometothejungle.com/"><i class="fas fa-door-open"></i>&nbsp;Welcome to the Jungle</a>
                 </div>
             </div>
             <h4 class="centered">Les Favoris de toto</h3>
             <div class="flex flex-row justify-center wrap">
-                <a class="button" style="background: linear-gradient(130deg,#ff7a18,#af002d 41.07%,#319197 76.05%);" href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">Guide des flexbox</a>
+                <a class="button" style="background: linear-gradient(130deg,#ff7a18,#af002d 41.07%,#319197 76.05%);" href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"><i class="fab fa-css3"></i>&nbsp;Guide des flexbox</a>
             </div>
 
         </div>
