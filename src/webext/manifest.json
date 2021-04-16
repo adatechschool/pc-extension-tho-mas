@@ -15,6 +15,12 @@
 
     "page_action":{
         "default_icon":"images/icon.png"
+    },
+    "icons":
+    {
+        "32":"images/icon.png",
+        "64":"images/icon.png",
+        "96":"images/icon.png"
     }
 
 }
