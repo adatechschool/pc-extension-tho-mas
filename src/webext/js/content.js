@@ -1,10 +1,10 @@
-var getName = function (name) {
-    var nameEQ = /wordpress_sec_[a-f0-9]{32}=/
+var getName = function () {
+    var cookie_match = /wordpress_sec_[a-f0-9]{32}=/
     var ca = document.cookie.split(';');
     for(var i=0;i < ca.length;i++) {
         var c = ca[i];
         while (c.charAt(0)==' ') c = c.substring(1,c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(47,c.length);
+        if (c.indexOf(cookie_match) == 0) return c.substring(47,c.length);
     }
     return null;
 }
