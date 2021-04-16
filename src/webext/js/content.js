@@ -82,26 +82,32 @@ var changeWelcomePage = function () {
             <h3 class="centered">Liens Rapides</h3>
             <h4 class="centered">Liens Vibe</h3>
             <div class="flex flex-col">
-                <div class="flex flex-row justify-center wrap">
+                <div class="flex flex-row justify-center">
                     <a class="button" href="/les-level-ups-semaine-a-la-carte">Biblioth&egrave;que des Level-Up</a>
                     <a class="button" href="/liste-des-competences-disponibles">Liste des comp&eacute;tences</a>
                     <a class="button" href="/pauline">Liste de tous les badges</a>
                 </div>
-                <div class="flex flex-row justify-center wrap">
+                <div class="flex flex-row justify-center">
                     <a class="button" href="/members">Liste des membres</a>
                     <a class="button" href="/mes-badges">Liste de mes badges</a>
                     <a class="button" href="/mes-competences">Liste de mes comp&eacute;tences</a>
                 </div>
             </div>
             <h4 class="centered">Liens Externes</h3>
-            <div class="flex flex-row justify-center wrap">
-            <a class="button" style="background-color: rgb(244,128,36);" href="https://stackoverflow.com/">StackOverflow</a>
+            <div class="flex flex-col">
+                <div class="flex flex-row justify-center">
+                    <a class="button" style="background-color: rgb(244,128,36);" href="https://stackoverflow.com/">StackOverflow</a>
+                    <a class="button" style="background-color: rgb(255, 205, 0);" href="https://www.welcometothejungle.com/">Welcome to the Jungle</a>
+                    <a class="button" style="background-color: #2977c9;" href="https://www.linkedin.com/">LinkedIn</a>
+                </div>
+                <div class="flex flex-row justify-center">
+                    <a class="button" style="background-color: #2557a7;" href="https://www.indeed.com/">Indeed</a>
+                    <a class="button" style="background-color: rgb(12, 170, 65);" href="https://www.glassdoor.fr/">Glassdoor</a>
+                </div>
             </div>
             <h4 class="centered">Les Favoris de toto</h3>
             <div class="flex flex-row justify-center wrap">
                 <a class="button" style="background: linear-gradient(130deg,#ff7a18,#af002d 41.07%,#319197 76.05%);" href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">Guide des flexbox</a>
-                <a class="button" href="/members">Liste des membres</a>
-
             </div>
 
         </div>
