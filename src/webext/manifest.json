@@ -1,11 +1,11 @@
 {
     "manifest_version":2,
     
-    "name":"tho-mas",
-    "description":"ouga",
+    "name":"VibeDashboard",
+    "description":"Remplace la page d'accueil de Vibe par un dashboard, plus utile que l'ancienne page",
     "version":"1.0",
     "permissions":["storage","activeTab","declarativeContent"],
-    
+
     "content_scripts":[
         {
             "matches":["*://vibe.adatechschool.fr/*"],
