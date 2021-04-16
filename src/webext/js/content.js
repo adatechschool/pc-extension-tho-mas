@@ -165,6 +165,65 @@ var changeWelcomePage = function () {
     });
     
 }
+
+var createNewPage = function (page_title,content_title,content,style) {
+    $('.page-content').empty();
+    $('.page-title').text(content_title)
+    $("title").text(page_title+" – Vibe – Ada Tech School")
+    $("body").removeClass("error404").addClass("page-template page-template-template-parts page-template-template-leftsidebar page-template-template-partstemplate-leftsidebar-php page")
+   
+    $(style).appendTo("head");
+    $('.page-content').html(content)
+    }
+
 window.onload = function () {
+        let style = `<style>
+        .wrapper{
+            margin:1em;
+        }
+        .centered{
+            text-align: center;
+        }
+        .entry-content{
+            border-radius: 1em;
+            margin-bottom: 2em;
+            background-color: white;
+            box-shadow: 1px 9px 22px -6px rgba(0,0,0,0.75);
+            -webkit-box-shadow: 1px 9px 22px -6px rgba(0,0,0,0.75);
+            -moz-box-shadow: 1px 9px 22px -6px rgba(0,0,0,0.75);
+        }
+        .flex{
+            display: flex;
+        }
+        .flex-row{
+            flex-direction: row;
+        }
+        .flex-col{
+            flex-direction: column;
+        }
+        .w-full{
+            width: 100%;
+        }
+        .justify-center{
+            justify-content: center;
+        }
+        .wrap{
+            flex-wrap: wrap;
+        }
+        .button{
+            background-color:#e74f3c;
+            border-radius:10px;
+            color: #fff;
+            margin: 0.25em;
+        }
+        .entry-content a{
+            text-decoration: none;
+        }
+        .m-1{
+            margin: 0.25em;
+        }
+    <style>
+    `
     if (window.location.href==="https://vibe.adatechschool.fr/" || window.location.href.includes("https://vibe.adatechschool.fr/#")) changeWelcomePage();
+    if (window.location.href==="https://vibe.adatechschool.fr/tob" || window.location.href.includes("https://vibe.adatechschool.fr/tob#")) createNewPage('tob','Tob',`<div class='wrapper w-full'>test</div>`,style);
 }
