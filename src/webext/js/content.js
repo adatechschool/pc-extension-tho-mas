@@ -1,14 +1,7 @@
-var getName = function () {
-    var cookie_match = /wordpress_sec_[a-f0-9]{32}=/
-    var ca = document.cookie.split(';');
-    for(var i=0;i < ca.length;i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1,c.length);
-        if (c.indexOf(cookie_match) == 0) return c.substring(47,c.length);
-    }
-    return null;
-}
 var changeWelcomePage = function () {
+
+    let name = $('p.um-header-avatar-name').find('a').text().split(' ')[0]
+    if (name.length === 0) window.location.replace('https://vibe.adatechschool.fr/login')
     $('.entry-content').empty();
     
     let style = `<style>
@@ -72,8 +65,6 @@ var changeWelcomePage = function () {
         let desc = response.weather[0].description
         let temp = response.main.temp
         let feelsLike = response.main.feels_like
-
-        let name = $('p.um-header-avatar-name').find('a').text().split(' ')[0]
 
         let dashboardHTML = `<div class='wrapper w-full'>
         <h2 class="centered">Bienvenue sur Vibe, ${name}! 🙂</h2>
