@@ -1,56 +1,9 @@
-var changeWelcomePage = function () {
+var changeWelcomePage = function (style) {
 
     let name = $('p.um-header-avatar-name').find('a').text().split(' ')[0]
     if (name.length === 0) window.location.replace('https://vibe.adatechschool.fr/login')
     $('.entry-content').empty();
     
-    let style = `<style>
-        .wrapper{
-            margin:1em;
-        }
-        .centered{
-            text-align: center;
-        }
-        .entry-content{
-            border-radius: 1em;
-            margin-bottom: 2em;
-            background-color: white;
-            box-shadow: 1px 9px 22px -6px rgba(0,0,0,0.75);
-            -webkit-box-shadow: 1px 9px 22px -6px rgba(0,0,0,0.75);
-            -moz-box-shadow: 1px 9px 22px -6px rgba(0,0,0,0.75);
-        }
-        .flex{
-            display: flex;
-        }
-        .flex-row{
-            flex-direction: row;
-        }
-        .flex-col{
-            flex-direction: column;
-        }
-        .w-full{
-            width: 100%;
-        }
-        .justify-center{
-            justify-content: center;
-        }
-        .wrap{
-            flex-wrap: wrap;
-        }
-        .button{
-            background-color:#e74f3c;
-            border-radius:10px;
-            color: #fff;
-            margin: 0.25em;
-        }
-        .entry-content a{
-            text-decoration: none;
-        }
-        .m-1{
-            margin: 0.25em;
-        }
-    <style>
-    `
     $(style).appendTo("head");
     $.ajax({
         "async": true,
@@ -167,6 +120,24 @@ var createNewPage = function (page_title,content_title,content,style) {
     $('.page-content').html(content)
     }
 
+var badgesDisplay = function (style) {
+    let styleRefacto = `<style>
+    ul.ls_grid_container.grid {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row
+    }
+    #badgeos-achievements-container .grid>li {
+        width: auto;
+        
+    }
+    </style>
+    `
+
+    $(style).appendTo("head");
+    $(styleRefacto).appendTo("head");
+}
+
 window.onload = function () {
         let style = `<style>
         .wrapper{
@@ -215,6 +186,7 @@ window.onload = function () {
         }
     <style>
     `
-    if (window.location.href==="https://vibe.adatechschool.fr/" || window.location.href.includes("https://vibe.adatechschool.fr/#")) changeWelcomePage();
-    if (window.location.href==="https://vibe.adatechschool.fr/tob" || window.location.href.includes("https://vibe.adatechschool.fr/tob#")) createNewPage('tob','Tob',`<div class='wrapper w-full'>test</div>`,style);
+    if (window.location.href==="https://vibe.adatechschool.fr/" || window.location.href.includes("https://vibe.adatechschool.fr/#")) changeWelcomePage(style);
+    else if (window.location.href==="https://vibe.adatechschool.fr/tob" || window.location.href.includes("https://vibe.adatechschool.fr/tob#")) createNewPage('tob','Tob',`<div class='wrapper w-full'>test</div>`,style);
+    else if (window.location.href==="https://vibe.adatechschool.fr/liste-des-competences-disponibles" || window.location.href.includes("https://vibe.adatechschool.fr/liste-des-competences-disponibles#")) badgesDisplay(style)
 }
