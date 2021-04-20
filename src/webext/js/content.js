@@ -53,7 +53,8 @@ var changeWelcomePage = function (style) {
             <h4 class="centered">Les Favoris de toto</h3>
             <div class="flex flex-row justify-center wrap">
                 <a class="button" target="_blank" style="background: linear-gradient(130deg,#ff7a18,#af002d 41.07%,#319197 76.05%);" href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"><i class="fab fa-css3"></i>&nbsp;Guide des flexbox</a>
-            </div>
+                <a class="button" target="_blank" style="background: linear-gradient(130deg,#ff7a18,#af002d 41.07%,#319197 76.05%);" href="https://css-tricks.com/examples/GradientBorder/"><i class="fab fa-css3"></i>&nbsp;Exemples de bordures d&eacute;grad&eacute;es</a>
+                </div>
 
         </div>
         <div class="wrapper w-full">
@@ -115,7 +116,6 @@ var createNewPage = function (page_title,content_title,content,style) {
     $('.page-title').text(content_title)
     $("title").text(page_title+" – Vibe – Ada Tech School")
     $("body").removeClass("error404").addClass("page-template page-template-template-parts page-template-template-leftsidebar page-template-template-partstemplate-leftsidebar-php page")
-   
     $(style).appendTo("head");
     $('.page-content').html(content)
     }
@@ -126,16 +126,36 @@ var badgesDisplay = function (style) {
         display: flex;
         flex-wrap: wrap;
         flex-direction: row
+        justify-content: flex-start;
+        align-content: flex-start;
     }
-    #badgeos-achievements-container .grid>li {
-        width: auto;
-        
+    div#badgeos-achievements-container ul.ls_grid_container.grid li.badgeos-achivements-list-item {
+        width: 10vw;
+        border: none;
+        padding: 0;
     }
     </style>
     `
+    let searchBarHTML = `<div class="badgeos-searchbar"><input id="searchbar" type="text" placeholder="Search for a badge..."></div>`
 
-    $(style).appendTo("head");
-    $(styleRefacto).appendTo("head");
+    $(style).appendTo("head")
+    $(styleRefacto).appendTo("head")
+    $('#badgeos-achievements-container').on('DOMNodeInserted', 'ul', function () {
+        $(searchBarHTML).appendTo(".badgeos-arrange-buttons")
+        $('.badgeos-item-description').remove()
+        $('.badgeos-item-image').css('paddingBottom','0')
+
+        $('#searchbar').on('change keyup paste click',function(){
+            $('.badgeos-item-image').find('a').toArray().forEach(e=>{
+                badgeName = e.getAttribute('href').split('/')[5]
+                if (!(badgeName.includes($(this).val())) && ($(this).val().length != 0)) $(e).parents('li').css('display', 'none')
+                else $(e).parents('li').css('display', 'list-item')
+            })
+            console.log($(this).val())
+        })
+
+        
+    })
 }
 
 window.onload = function () {
