@@ -129,19 +129,20 @@ var badgesDisplay = function (style) {
         justify-content: flex-start;
         align-content: flex-start;
     }
-    div#badgeos-achievements-container ul.ls_grid_container.grid li.badgeos-achivements-list-item {
+    div#badgeos-achievements-container ul.ls_grid_container.grid li {
         width: 10vw;
         border: none;
         padding: 0;
     }
     </style>
     `
+
     let searchBarHTML = `<div class="badgeos-searchbar"><input id="searchbar" type="text" placeholder="Search for a badge..."></div>`
 
     $(style).appendTo("head")
     $(styleRefacto).appendTo("head")
-    $('#badgeos-achievements-container').on('DOMNodeInserted', 'ul', function () {
-        $(searchBarHTML).appendTo(".badgeos-arrange-buttons")
+    $('#badgeos-achievements-container').on('change DOMNodeInserted', 'ul', function () {
+        $(".badgeos-arrange-buttons").html(searchBarHTML)
         $('.badgeos-item-description').remove()
         $('.badgeos-item-image').css('paddingBottom','0')
 
@@ -151,7 +152,6 @@ var badgesDisplay = function (style) {
                 if (!(badgeName.includes($(this).val())) && ($(this).val().length != 0)) $(e).parents('li').css('display', 'none')
                 else $(e).parents('li').css('display', 'list-item')
             })
-            console.log($(this).val())
         })
 
         
