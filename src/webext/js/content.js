@@ -149,10 +149,12 @@ var badgesDisplay = function (style) {
     $(style).appendTo("head")
     $(styleRefacto).appendTo("head")
     $('#badgeos-achievements-container').on('change DOMNodeInserted', 'ul', function () {
-        $(".badgeos-arrange-buttons").html(searchBarHTML+filterHTML)
         $('.badgeos-item-description').remove()
         $('.badgeos-item-image').css('paddingBottom','0')
 
+        let obtainedHTML = `<div class="badgeos-obtained-badges"><span>Comp&eactue; obtenues: ${$('.user-has-earned').length}/52</span></div>`
+
+        $(".badgeos-arrange-buttons").html(searchBarHTML+obtainedHTML+filterHTML)
         $('#searchbar').on('change keyup paste click',function(){
             $('.badgeos-item-image').find('a').toArray().forEach(e=>{
                 badgeName = e.getAttribute('href').split('/')[5]
@@ -179,9 +181,6 @@ var usersSidebar = function() {
         #user-sidebar {
             width: 20%;
             float: right;
-            background-color: #ddd;
-            position: sticky;
-            position: -webkit-sticky;
         }
         #body-flex{
             display:flex;
@@ -206,6 +205,9 @@ var usersSidebar = function() {
             border-radius:20px;
             margin:0.5rem;
             width: 90%;
+            box-shadow: 1px 9px 22px -6px rgba(0,0,0,0.1);
+            -webkit-box-shadow: 1px 9px 22px -6px rgba(0,0,0,0.1);
+            -moz-box-shadow: 1px 9px 22px -6px rgba(0,0,0,0.1);
         }
         </style>`
         let html = `<div id="user-sidebar">
