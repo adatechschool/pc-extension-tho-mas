@@ -158,6 +158,72 @@ var badgesDisplay = function (style) {
     })
 }
 
+var usersBanner = function() {
+
+    $.ajax({
+        async: true,
+        url: "https://vibe.adatechschool.fr/wp-json/wp/v2/users?per_page=100"
+    }).done(response =>{
+        let sidebarStyle=`<style>
+        #user-sidebar {
+            width: 20%;
+            float: right;
+            background-color: #ddd;
+            position: sticky;
+            position: -webkit-sticky;
+        }
+        #body-flex{
+            display:flex;
+            justify-content: space-between;
+        }
+        .user-card a {
+            display: flex;
+
+        }
+        #content{
+            width: 80vw;
+        }
+        .user-name{
+            padding-left: 2rem;
+        }
+        .user-photo img{
+            padding-left: 1rem
+        }
+        .user-card {
+            padding: 1rem 0.5rem 1rem 0.5rem;
+            background-color: white;
+            border-radius:20px;
+            margin:0.5rem;
+            width: 90%;
+        }
+        </style>`
+        let html = `<div id="user-sidebar">
+        `
+        let link
+        for (const user of response) {
+            link = `https://vibe.adatechschool.fr/user/${user.slug}`
+            let userHtml = `
+            <div class="user-card">
+                <a class="user-link" href="${link}">
+                    <div class="user-photo">
+                        <img src="${user.avatar_urls['24']}" alt="${user.name}" srcset="${user.avatar_urls['24']}">
+                    </div>
+                    <div class="user-card-text">
+                        <span class="user-name">${user.name}</span>
+                    </div>
+                </a>
+            </div>
+            `
+            html += userHtml
+        }
+        html+="</div>"
+        $('#masthead').after('<div id="body-flex"></div>')
+        $("#page div.boot-row").has('div').has('#content').detach().appendTo("#body-flex");
+        $('#body-flex').append(html);
+        $(sidebarStyle).appendTo('head')
+    })
+}
+
 window.onload = function () {
         let style = `<style>
         .wrapper{
@@ -209,4 +275,5 @@ window.onload = function () {
     if (window.location.href==="https://vibe.adatechschool.fr/" || window.location.href.includes("https://vibe.adatechschool.fr/#")) changeWelcomePage(style);
     else if (window.location.href==="https://vibe.adatechschool.fr/tob" || window.location.href.includes("https://vibe.adatechschool.fr/tob#")) createNewPage('tob','Tob',`<div class='wrapper w-full'>test</div>`,style);
     else if (window.location.href==="https://vibe.adatechschool.fr/liste-des-competences-disponibles" || window.location.href.includes("https://vibe.adatechschool.fr/liste-des-competences-disponibles#")) badgesDisplay(style)
+    usersBanner()
 }
