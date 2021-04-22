@@ -152,7 +152,7 @@ var badgesDisplay = function (style) {
         $('.badgeos-item-description').remove()
         $('.badgeos-item-image').css('paddingBottom','0')
 
-        let obtainedHTML = `<div class="badgeos-obtained-badges"><span>Comp&eactue; obtenues: ${$('.user-has-earned').length}/52</span></div>`
+        let obtainedHTML = `<div class="badgeos-obtained-badges"><span>Comp&eacute; obtenues: ${$('.user-has-earned').length}/52</span></div>`
 
         $(".badgeos-arrange-buttons").html(searchBarHTML+obtainedHTML+filterHTML)
         $('#searchbar').on('change keyup paste click',function(){
