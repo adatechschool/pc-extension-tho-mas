@@ -134,15 +134,22 @@ var badgesDisplay = function (style) {
         border: none;
         padding: 0;
     }
+    .badgeos-arrange-buttons {
+        display:flex;
+        justify-content:space-between;
+    }
+    .badgeos-filter span, .badgeos-searchbar{
+        margin: 0 1rem 0 1rem;
+    }
     </style>
     `
 
-    let searchBarHTML = `<div class="badgeos-searchbar"><input id="searchbar" type="text" placeholder="Search for a badge..."></div>`
-
+    let searchBarHTML = '<div class="badgeos-searchbar"><input id="searchbar" type="text" placeholder="Search for a badge..."></div>'
+    let filterHTML = '<div class="badgeos-filter"><input id="earned-filter" type="checkbox" checked="checked"><span>Voir les comp&eacute;tences d&eacute;j&agrave; obtenues</span></div>'
     $(style).appendTo("head")
     $(styleRefacto).appendTo("head")
     $('#badgeos-achievements-container').on('change DOMNodeInserted', 'ul', function () {
-        $(".badgeos-arrange-buttons").html(searchBarHTML)
+        $(".badgeos-arrange-buttons").html(searchBarHTML+filterHTML)
         $('.badgeos-item-description').remove()
         $('.badgeos-item-image').css('paddingBottom','0')
 
@@ -152,6 +159,10 @@ var badgesDisplay = function (style) {
                 if (!(badgeName.includes($(this).val())) && ($(this).val().length != 0)) $(e).parents('li').css('display', 'none')
                 else $(e).parents('li').css('display', 'list-item')
             })
+        })
+        $('#earned-filter').on('click', _=>{
+            if ($('#earned-filter').prop('checked') == false) $('.user-has-earned').parents('li').css('display', 'none')
+            else $('.user-has-earned').parents('li').css('display', 'list-item')
         })
 
         
