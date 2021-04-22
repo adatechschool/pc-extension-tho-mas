@@ -237,6 +237,10 @@ var usersSidebar = function() {
     })
 }
 
+var fixLogo = _ =>{
+    $('.site-img-logo').prop('srcset','https://vibe.adatechschool.fr/wp-content/uploads/2020/06/new_taille_solo.png')
+}
+
 window.onload = function () {
         let style = `<style>
         .wrapper{
@@ -285,6 +289,7 @@ window.onload = function () {
         }
     <style>
     `
+    fixLogo()
     if (window.location.href==="https://vibe.adatechschool.fr/" || window.location.href.includes("https://vibe.adatechschool.fr/#")) changeWelcomePage(style);
     else if (window.location.href==="https://vibe.adatechschool.fr/tob" || window.location.href.includes("https://vibe.adatechschool.fr/tob#")) createNewPage('tob','Tob',`<div class='wrapper w-full'>test</div>`,style);
     else if (window.location.href==="https://vibe.adatechschool.fr/liste-des-competences-disponibles" || window.location.href.includes("https://vibe.adatechschool.fr/liste-des-competences-disponibles#")) badgesDisplay(style)
