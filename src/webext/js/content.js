@@ -217,7 +217,7 @@ var usersSidebar = function() {
             link = `https://vibe.adatechschool.fr/user/${user.slug}`
             let userHtml = `
             <div class="user-card">
-                <a class="user-link" href="${link}">
+                <a class="user-link" href="${link}" target="_blank">
                     <div class="user-photo">
                         <img src="${user.avatar_urls['24']}" alt="${user.name}" srcset="${user.avatar_urls['24']}">
                     </div>
