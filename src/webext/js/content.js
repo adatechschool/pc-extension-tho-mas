@@ -158,7 +158,7 @@ var badgesDisplay = function (style) {
     })
 }
 
-var usersBanner = function() {
+var usersSidebar = function() {
 
     $.ajax({
         async: true,
@@ -275,5 +275,5 @@ window.onload = function () {
     if (window.location.href==="https://vibe.adatechschool.fr/" || window.location.href.includes("https://vibe.adatechschool.fr/#")) changeWelcomePage(style);
     else if (window.location.href==="https://vibe.adatechschool.fr/tob" || window.location.href.includes("https://vibe.adatechschool.fr/tob#")) createNewPage('tob','Tob',`<div class='wrapper w-full'>test</div>`,style);
     else if (window.location.href==="https://vibe.adatechschool.fr/liste-des-competences-disponibles" || window.location.href.includes("https://vibe.adatechschool.fr/liste-des-competences-disponibles#")) badgesDisplay(style)
-    usersBanner()
+    usersSidebar()
 }
