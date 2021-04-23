@@ -198,6 +198,8 @@ var usersSidebar = function() {
         }
         .user-photo img{
             padding-left: 1rem
+            width: 32px;
+            height: 32px;
         }
         .user-card {
             padding: 1rem 0.5rem 1rem 0.5rem;
@@ -215,11 +217,12 @@ var usersSidebar = function() {
         let link
         for (const user of response) {
             link = `https://vibe.adatechschool.fr/user/${user.slug}`
+            profilePicLink = `https://vibe.adatechschool.fr/wp-content/uploads/ultimatemember/${user.id}/profile_photo-190x190.jpg`
             let userHtml = `
             <div class="user-card">
                 <a class="user-link" href="${link}" target="_blank">
                     <div class="user-photo">
-                        <img src="${user.avatar_urls['24']}" alt="${user.name}" srcset="${user.avatar_urls['24']}">
+                        <img src="${profilePicLink}" alt="${user.name}"">
                     </div>
                     <div class="user-card-text">
                         <span class="user-name">${user.name}</span>
