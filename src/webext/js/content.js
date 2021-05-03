@@ -171,6 +171,47 @@ var badgesDisplay = function (style) {
     })
 }
 
+var levelUpDisplay = function (style) {
+    let styleRefacto = `<style>
+    ul.ls_grid_container.grid {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row
+        justify-content: flex-start;
+        align-content: flex-start;
+    }
+    div#badgeos-achievements-container ul.ls_grid_container.grid li {
+        width: 10vw;
+        border: none;
+        padding: 0;
+    }
+    .badgeos-arrange-buttons {
+        display:flex;
+        justify-content:space-between;
+    }
+    .badgeos-filter span, .badgeos-searchbar{
+        margin: 0 1rem 0 1rem;
+    }
+    </style>
+    `
+
+    let searchBarHTML = '<div class="badgeos-searchbar"><input id="searchbar" type="text" placeholder="Search for a badge..."></div>'
+    $(style).appendTo("head")
+    $(styleRefacto).appendTo("head")
+    $('#badgeos-achievements-container').on('change DOMNodeInserted', 'ul', function () {
+        $('.badgeos-item-description').remove()
+        $('.badgeos-item-image').css('paddingBottom','0')
+        $(".badgeos-arrange-buttons").html(searchBarHTML)
+        $('#searchbar').on('change keyup paste click',function(){
+            $('.badgeos-item-image').find('a').toArray().forEach(e=>{
+                badgeName = e.getAttribute('href').split('/')[5]
+                if (!(badgeName.includes($(this).val())) && ($(this).val().length != 0)) $(e).parents('li').css('display', 'none')
+                else $(e).parents('li').css('display', 'list-item')
+            })
+        })
+    })
+}
+
 var usersSidebar = function() {
 
     $.ajax({
@@ -240,9 +281,7 @@ var usersSidebar = function() {
     })
 }
 
-var fixLogo = _ =>{
-    $('.site-img-logo').prop('srcset','https://vibe.adatechschool.fr/wp-content/uploads/2020/06/new_taille_solo.png')
-}
+var fixLogo = _ =>$('.site-img-logo').prop('srcset','https://vibe.adatechschool.fr/wp-content/uploads/2020/06/new_taille_solo.png')
 
 window.onload = function () {
         let style = `<style>
@@ -296,5 +335,6 @@ window.onload = function () {
     if (window.location.href==="https://vibe.adatechschool.fr/" || window.location.href.includes("https://vibe.adatechschool.fr/#")) changeWelcomePage(style);
     else if (window.location.href==="https://vibe.adatechschool.fr/tob" || window.location.href.includes("https://vibe.adatechschool.fr/tob#")) createNewPage('tob','Tob',`<div class='wrapper w-full'>test</div>`,style);
     else if (window.location.href==="https://vibe.adatechschool.fr/liste-des-competences-disponibles" || window.location.href.includes("https://vibe.adatechschool.fr/liste-des-competences-disponibles#")) badgesDisplay(style)
+    else if (window.location.href==="https://vibe.adatechschool.fr/les-level-ups-semaine-a-la-carte" || window.location.href.includes("https://vibe.adatechschool.fr/les-level-ups-semaine-a-la-carte#")) levelUpDisplay(style)
     usersSidebar()
 }
